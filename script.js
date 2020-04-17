@@ -25,6 +25,31 @@ for (let i = 0; i < 2; i++) {
     }
 }
 
+
+function detectDayBudget() {
+    appData.moneyPerDay = appData.budjet / 30;
+    return console.log('Бюджет на день = ' + appData.moneyPerDay);
+};
+
+function detectLevel() {
+    if (appData.moneyPerDay < 1000) {
+        return console.log('Это минимальный уровень достатка')
+    } else if (appData.moneyPerDay > 1000 && appData.moneyPerDay < 3000) {
+        return console.log('Это немного выше минимального уровеня достатка')
+    } else if (appData.moneyPerDay > 3000) {
+        return console.log('Это нормальный уровень достатка')
+    }
+};
+
+function chooseOptExpenses() {
+    for (let j = 1; j <= 3; j++) {
+        let a = +prompt(`Во сколько обойдется статья необязательный расходов номер ${j} `, '');
+        appData.optionalExpenses[j] = a;
+    }
+}
+
+
+
 // let i = 0;
 // while (i < 2) {
 //     let a = prompt('Введите обязательную статью расходов в этом месяце', ''),
@@ -48,14 +73,3 @@ for (let i = 0; i < 2; i++) {
 //     }
 //     i++;
 // } while (i < 2);
-
-appData.moneyPerDay = appData.budjet / 30;
-console.log('Бюджет на день = ' + appData.moneyPerDay);
-
-if (appData.moneyPerDay < 1000) {
-    console.log('Это минимальный уровень достатка')
-} else if (appData.moneyPerDay > 1000 && appData.moneyPerDay < 3000) {
-    console.log('Это немного выше минимального уровеня достатка')
-} else if (appData.moneyPerDay > 3000) {
-    console.log('Это нормальный уровень достатка')
-}
